@@ -1,0 +1,59 @@
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    public static void main(String []argh) {
+        int yas,yolculukTipi;
+        float toplamTutar,mesafe,indirim;
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Mesafeyi giriniz. ");
+        mesafe=input.nextInt();
+        System.out.println("Yaşınızı giriniz. ");
+        yas=input.nextInt();
+        System.out.println("Yolculuk tipini giriniz.(1=> tek yön , 2=> gidiş-dönüş) ");
+        yolculukTipi=input.nextInt();
+        if (yolculukTipi!=1 && yolculukTipi!=2)
+        {
+            System.out.print("Hatalı Veri Girdiniz !" );
+        }
+        else
+        {
+            toplamTutar= (float) (mesafe*0.10);
+            if(yas<12)
+            {
+                indirim= (float) (toplamTutar*0.5);
+                toplamTutar-=indirim;
+
+
+            }
+            if(yas>12||yas<24)
+            {
+                indirim= (float) (toplamTutar*0.1);
+                toplamTutar-=indirim;
+
+            }
+            if(yas>65)
+            {
+                indirim= (float) (toplamTutar*0.3);
+                toplamTutar-=indirim;
+
+            }
+            if(yolculukTipi==2)
+            {
+                indirim= (float) (toplamTutar*0.2);
+                toplamTutar-=indirim;
+                toplamTutar*=2;
+
+            }
+            System.out.println("Toplam tutar: "+toplamTutar);
+
+        }
+
+
+    }
+
+}
+
+
+
